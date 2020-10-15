@@ -32,30 +32,25 @@ class MechanicPuzzle:
             while left_iterator < len(left_arr) and right_iterator < len(right_arr):
                 MechanicPuzzle.merge_comparisons_counter += 1
                 if left_arr[left_iterator].garanty_in_monthes > right_arr[right_iterator].garanty_in_monthes:
+                    MechanicPuzzle.merge_swap_counter += 1
                     puzzles[general_iterator] = left_arr[left_iterator]
                     left_iterator += 1
                 else:
                     puzzles[general_iterator] = right_arr[right_iterator]
                     right_iterator += 1
                 general_iterator += 1
-                MechanicPuzzle.merge_swap_counter += 1
 
             while left_iterator < len(left_arr):
                 puzzles[general_iterator] = left_arr[left_iterator]
-                MechanicPuzzle.merge_comparisons_counter += 1
-                MechanicPuzzle.merge_swap_counter += 1
                 left_iterator += 1
                 general_iterator += 1
 
             while right_iterator < len(right_arr):
                 puzzles[general_iterator] = right_arr[right_iterator]
-                MechanicPuzzle.merge_comparisons_counter += 1
-                MechanicPuzzle.merge_swap_counter += 1
                 right_iterator += 1
                 general_iterator += 1
 
-        return puzzles
-
+        return puzzles    
     def selection_sort_elements_quantity(puzzles:list):
         list_length = len(puzzles)
         for i in range(list_length - 1):
